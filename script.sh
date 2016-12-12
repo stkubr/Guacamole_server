@@ -34,6 +34,14 @@ vncserver
 # reboot 
 sudo shutdown -r now
 
+nano ~/.vnc/xstartup
+#add
+#!/bin/bash
+xrdb $HOME/.Xresources
+startxfce4 &
+
+sudo chmod +x ~/.vnc/xstartup
+
 # now let install deps for Guacamole 
 sudo apt-get -y install libcairo2-dev libpng12-dev libossp-uuid-dev libfreerdp-dev libpango1.0-dev libssh2-1-dev libtelnet-dev libvncserver-dev libpulse-dev libssl-dev libvorbis-dev libwebp-dev mysql-server mysql-client mysql-common mysql-utilities tomcat8 freerdp ghostscript wget curl
 wget -O libjpeg-turbo-official_1.5.0_amd64.deb http://downloads.sourceforge.net/project/libjpeg-turbo/1.5.0/libjpeg-turbo-official_1.5.0_amd64.deb
@@ -84,10 +92,19 @@ sudo nano /etc/guacamole/user-mapping.xml
 sudo rm -rf /usr/share/tomcat8/.guacamole
 sudo ln -s /etc/guacamole /usr/share/tomcat8/.guacamole
 
+# reboot 
+sudo shutdown -r now
+
+# open tomcat server to internets :)
+sudo iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
+
+# launch everything
+vncserver
+sudo service tomcat8 restart
+sudo service quacd restart
 
 
-
-
+# iptables -n -L -v --line-numbers
 
 
 
