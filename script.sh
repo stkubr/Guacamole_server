@@ -61,9 +61,28 @@ sudo ldconfig
 sudo systemctl enable guacd
 cd ..
 
+# 
 
+sudo nano /etc/guacamole/guacamole.properties
+#add 
+guacd-hostname: localhost # although the guide says it should be guacd-host, but the example shown in http://guac-dev.org/doc/gug/configuring-guacamole.html is guacd-hostname
+guacd-port: 4822
+user-mapping: /etc/guacamole/user-mapping.xml
 
+sudo nano /etc/guacamole/user-mapping.xml
+#add 
+<user-mapping>
+    <authorize username="#####" password="#####">
+        <protocol>vnc</protocol>
+        <param name="hostname">localhost</param>
+        <param name="port">5901</param>
+        <param name="######">staffing</param>
+    </authorize>
+</user-mapping>
 
+# more config
+sudo rm -rf /usr/share/tomcat8/.guacamole
+sudo ln -s /etc/guacamole /usr/share/tomcat8/.guacamole
 
 
 
