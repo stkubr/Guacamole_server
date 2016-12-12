@@ -101,7 +101,7 @@ sudo iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
 # launch everything
 vncserver
 sudo service tomcat8 restart
-sudo service quacd restart
+sudo service guacd restart
 
 
 # iptables -n -L -v --line-numbers
