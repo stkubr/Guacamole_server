@@ -73,7 +73,7 @@ cd ..
 
 sudo nano /etc/guacamole/guacamole.properties
 #add 
-guacd-hostname: localhost # although the guide says it should be guacd-host, but the example shown in http://guac-dev.org/doc/gug/configuring-guacamole.html is guacd-hostname
+guacd-hostname: localhost 
 guacd-port: 4822
 user-mapping: /etc/guacamole/user-mapping.xml
 
