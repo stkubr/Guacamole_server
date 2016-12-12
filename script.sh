@@ -99,7 +99,7 @@ sudo shutdown -r now
 sudo iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
 
 # launch everything
-vncserver
+vncserver -depth 8 -geometry 960x1080
 sudo service tomcat8 restart
 sudo service guacd restart
 
