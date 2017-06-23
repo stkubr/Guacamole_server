@@ -114,7 +114,10 @@ and change it to
 
 <property name="&lt;Super&gt;Tab" type="empty"/>
 
-https://bintray.com/tigervnc/stable/download_file?file_path=ubuntu-16.04LTS%2Famd64%2Ftigervncserver_1.7.0-1ubuntu1_amd64.deb
-wget https://bintray.com/artifact/download/tigervnc/stable/ubuntu-14.04LTS/amd64/tigervncserver_1.6.0-3ubuntu1_amd64.deb
-sudo dpkg -i tigervncserver_1.6.0-3ubuntu1_amd64.deb
+
+wget https://bintray.com/tigervnc/stable/download_file?file_path=ubuntu-16.04LTS%2Famd64%2Ftigervncserver_1.7.0-1ubuntu1_amd64.deb
+sudo dpkg -i tigervncserver_1.7.0-3ubuntu1_amd64.deb
 sudo apt-get -f install
+
+~/.vnc/config
+securitytypes= None # otherwise frequent crash
